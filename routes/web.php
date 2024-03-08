@@ -19,3 +19,6 @@ Route::get('/', function () {
 Route::get('/task', function () {
     return view('task');
 });
+Route::get('/category', function () {
+    return view('category');
+});

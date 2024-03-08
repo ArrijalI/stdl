@@ -29,12 +29,24 @@
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="" required="">
                     </div>
-                    <div class="col-span-2">
-                        <label for="due"
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="due_date"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tanggal</label>
-                        <input datepicker type="text" name="due" id="due"
+                        <input datepicker type="text" name="due_date" id="due_date"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             placeholder="" required="">
+                    </div>
+                    <div class="col-span-2 sm:col-span-1">
+                        <label for="due_time_hour" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jam</label>
+                        <div class="flex">
+                            <input type="number" name="due_time_hour" id="due_time_hour" min="0" max="23"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Jam" required="">
+                            <span class="flex items-center justify-center px-2.5">:</span>
+                            <input type="number" name="due_time_minute" id="due_time_minute" min="0" max="59"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Menit" required="">
+                        </div>
                     </div>
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category"
@@ -54,19 +66,9 @@
                         <select id="priority"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Pilih Prioritas</option>
-                            @for ($i = 3; $i >= 1; $i--)
-                                @php
-                                    $text = '';
-                                    if ($i === 1) {
-                                        $text = 'Tinggi';
-                                    } elseif ($i === 2) {
-                                        $text = 'Sedang';
-                                    } elseif ($i === 3) {
-                                        $text = 'Rendah';
-                                    }
-                                @endphp
-                                <option value="{{ $i }}">{{ $text }}</option>
-                            @endfor
+                                <option value="low">Rendah</option>
+                                <option value="normal">Normal</option>
+                                <option value="high">Tinggi</option>
                         </select>
                     </div>
                     <div class="col-span-2">

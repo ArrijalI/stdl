@@ -2,7 +2,7 @@
     <h5 class=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Hari Ini
     </h5>
-    <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+    <a href="/task" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
         Lihat Semua
     </a>
 </div>
@@ -10,49 +10,40 @@
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
         <li class="py-3 sm:py-4">
             <div class="flex items-center ">
-                <div class="flex-shrink-0">
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image">
-                </div>
                 <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
                         Bonnie Green
-                    </p>
+                    </div>
                 </div>
-                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    $3467
+                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
+                    25 : 61
                 </div>
             </div>
         </li>
         <li class="py-3 sm:py-4">
             <div class="flex items-center ">
-                <div class="flex-shrink-0">
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image">
-                </div>
                 <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
                         Bonnie Green
-                    </p>
+                    </div>
                 </div>
-                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    $3467
+                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
+                    24 : 60
                 </div>
             </div>
         </li>
         <li class="py-3 sm:py-4">
             <div class="flex items-center ">
-                <div class="flex-shrink-0">
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
-                        alt="Bonnie image">
-                </div>
                 <div class="flex-1 min-w-0 ms-4">
-                    <p class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="text-xl text-gray-900 truncate dark:text-white">
+                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
                         Bonnie Green
-                    </p>
+                    </div>
                 </div>
-                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                    $3467
+                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
+                    99 : 99
                 </div>
             </div>
         </li>
