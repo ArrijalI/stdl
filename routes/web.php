@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Task;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------

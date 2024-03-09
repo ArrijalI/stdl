@@ -8,24 +8,26 @@
 </div>
 <div class="flow-root">
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-        <li class="py-3 sm:py-4">
-            <div class="flex items-center ">
-                <div class="flex-1 min-w-0 ms-4">
-                    <div class="text-xl text-gray-900 truncate dark:text-white">
-                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                        Bonnie Green
+        <a data-modal-target="read-task" data-modal-toggle="read-task">
+            <li class="hover:bg-gray-100 py-3 sm:py-4">
+                <div class="flex items-center">
+                    <div class="flex-1 min-w-0 ms-4">
+                        <div class="text-xl text-gray-900 truncate dark:text-white">
+                            <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                            Bonnie Green
+                        </div>
+                    </div>
+                    <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
+                        25 : 61
                     </div>
                 </div>
-                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
-                    25 : 61
-                </div>
-            </div>
-        </li>
+            </li>
+        </a>
         <li class="py-3 sm:py-4">
             <div class="flex items-center ">
                 <div class="flex-1 min-w-0 ms-4">
                     <div class="text-xl text-gray-900 truncate dark:text-white">
-                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
                         Bonnie Green
                     </div>
                 </div>
@@ -38,7 +40,7 @@
             <div class="flex items-center ">
                 <div class="flex-1 min-w-0 ms-4">
                     <div class="text-xl text-gray-900 truncate dark:text-white">
-                    <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
+                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
                         Bonnie Green
                     </div>
                 </div>

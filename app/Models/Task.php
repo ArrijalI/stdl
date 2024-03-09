@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'task_id';
-    protected $dateFormat = 'U';
+    protected $fillable = ['id', 'name', 'due_date', 'due_time', 'category', 'description', 'status'];
+    protected $table = 'task';
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

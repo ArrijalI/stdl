@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>STDL</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @include('components.darkcheck')
+    @include('components.script-darkcheck')
 </head>
 <body class="dark:bg-gray-800 dark:border-gray-700">
     @include('components.navbar')
@@ -18,5 +18,6 @@
 </body>
 @include('components.modal-new-task')
 @include('components.modal-new-category')
+@include('components.modal-read-task')
 </html>
-@include('components.dark-script')
+@include('components.script-darkmode')

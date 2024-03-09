@@ -5,5 +5,5 @@
             @include('components.tab-tasklist')
         </div>
     </div>
-    @include('components.add-speeddial')
+    @include('components.speeddial-add')
 @endsection
