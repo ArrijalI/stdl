@@ -6,4 +6,5 @@
         </div>
     </div>
     @include('components.speeddial-add')
+    @include('components.modal-read-task')
 @endsection

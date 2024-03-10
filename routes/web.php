@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Task;
 use App\Models\Category;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,7 @@ use App\Models\Category;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [TaskController::class, 'dashboard']);
 Route::get('/task', function () {
     return view('task');
 });

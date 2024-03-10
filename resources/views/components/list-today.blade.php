@@ -7,47 +7,23 @@
     </a>
 </div>
 <div class="flow-root">
+    @foreach ($tasks as $task)
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
-        <a data-modal-target="read-task" data-modal-toggle="read-task">
+        <a data-modal-target="read-task-{{ $task->id }}" data-modal-toggle="read-task-{{ $task->id }}">
             <li class="hover:bg-gray-100 py-3 sm:py-4">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
                         <div class="text-xl text-gray-900 truncate dark:text-white">
-                            <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                            Bonnie Green
+                            @include('logic.badge-if-priority')
+                            {{ $task->name }}
                         </div>
                     </div>
-                    <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
-                        25 : 61
+                    <div class="inline-flex items-center mr-2 font-bold text-gray-900 dark:text-white">
+                        {{ $task->formattedTime }}
                     </div>
                 </div>
             </li>
         </a>
-        <li class="py-3 sm:py-4">
-            <div class="flex items-center ">
-                <div class="flex-1 min-w-0 ms-4">
-                    <div class="text-xl text-gray-900 truncate dark:text-white">
-                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                        Bonnie Green
-                    </div>
-                </div>
-                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
-                    24 : 60
-                </div>
-            </div>
-        </li>
-        <li class="py-3 sm:py-4">
-            <div class="flex items-center ">
-                <div class="flex-1 min-w-0 ms-4">
-                    <div class="text-xl text-gray-900 truncate dark:text-white">
-                        <div class="inline-block w-4 h-4 mr-2 bg-red-700 rounded-full"></div>
-                        Bonnie Green
-                    </div>
-                </div>
-                <div class="inline-flex items-center font-bold text-gray-900 dark:text-white">
-                    99 : 99
-                </div>
-            </div>
-        </li>
     </ul>
+    @endforeach
 </div>

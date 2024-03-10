@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @include('components.script-darkcheck')
 </head>
+
 <body class="dark:bg-gray-800 dark:border-gray-700">
     @include('components.navbar')
     @include('components.sidebar')
@@ -18,6 +20,6 @@
 </body>
 @include('components.modal-new-task')
 @include('components.modal-new-category')
-@include('components.modal-read-task')
+
 </html>
 @include('components.script-darkmode')
