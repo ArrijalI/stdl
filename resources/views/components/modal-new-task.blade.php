@@ -49,26 +49,24 @@
                         </div>
                     </div>
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="category"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
+                        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
                         <select id="priority"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">Pilih Kategori</option>
-                            <option value="TV">TV/Monitors</option>
-                            <option value="PC">PC</option>
-                            <option value="GA">Gaming/Console</option>
-                            <option value="PH">Phones</option>
+                            <option selected>Pilih Kategori</option>
+                            @foreach ($tasks as $task)
+                                <option value="{{ $task->category->name }}">{{ $task->category->name }}</option>
+                            @endforeach
                         </select>
-                    </div>
+                    </div>                    
                     <div class="col-span-2 sm:col-span-1">
                         <label for="priority"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prioritas</label>
                         <select id="priority"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Pilih Prioritas</option>
-                                <option value="low">Rendah</option>
-                                <option value="normal">Normal</option>
-                                <option value="high">Tinggi</option>
+                                <option value="3">Rendah</option>
+                                <option value="2">Normal</option>
+                                <option value="1">Tinggi</option>
                         </select>
                     </div>
                     <div class="col-span-2">

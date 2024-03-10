@@ -34,7 +34,7 @@
                     <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">{{ $task->description }}</dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Kategory</dt>
                     <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">
-                        @include('logic.text-if-category')
+                        @include('logic.get-badge-color-category')
                     </dd>
                     <dt class="mb-2 font-semibold leading-none text-gray-900 dark:text-white">Prioritas</dt>
                     <dd class="mb-4 font-light text-gray-500 sm:mb-5 dark:text-gray-400">

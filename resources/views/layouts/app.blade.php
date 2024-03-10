@@ -18,8 +18,6 @@
         @yield('content')
     </div>
 </body>
-@include('components.modal-new-task')
-@include('components.modal-new-category')
 
 </html>
 @include('components.script-darkmode')

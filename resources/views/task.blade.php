@@ -5,6 +5,7 @@
             @include('components.tab-tasklist')
         </div>
     </div>
-    @include('components.speeddial-add')
+    @include('components.speeddial-add-task')
     @include('components.modal-read-task')
+    @include('components.modal-new-task')
 @endsection
