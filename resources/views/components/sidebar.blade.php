@@ -15,7 +15,7 @@
                 </a>
             </li>
             <li>
-                <a href="/task"
+                <a href="/tasks"
                     class="flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg transition duration-75 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">
                     <svg class="w-6 h-6 text-primary-600 dark:text-gray-400 group-hover:text-primary-800"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li>
-                <a href="/category"
+                <a href="/categories"
                     class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-6 h-6 text-primary-600 dark:text-gray-400 group-hover:text-primary-800"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 20">

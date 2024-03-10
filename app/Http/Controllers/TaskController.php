@@ -22,8 +22,19 @@ class TaskController extends Controller
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
         }
-
         return view('dashboard', [
+            'tasks' => $tasks
+        ]);
+    }
+
+    public function getAll()
+    {
+        $tasks = $this->taskService->getAllTasks();
+        foreach ($tasks as $task) {
+            $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
+            $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
+        }
+        return view('task', [
             'tasks' => $tasks
         ]);
     }

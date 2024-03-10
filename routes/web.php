@@ -17,10 +17,6 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', [TaskController::class, 'dashboard']);
-Route::get('/task', function () {
-    return view('task');
-});
-Route::get('/category', function () {
-    return view('category');
-});
+Route::get('/', [TaskController::class, 'dashboard'])->name('dashboard.index');
+Route::get('/tasks', [TaskController::class, 'getAll'])->name('tasks.getAll');
+Route::get('/categories', [CategoryController::class, 'getAll'])->name('categoriess.getAll');

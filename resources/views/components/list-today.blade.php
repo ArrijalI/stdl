@@ -2,7 +2,7 @@
     <h5 class=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Hari Ini
     </h5>
-    <a href="/task" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+    <a href="/tasks" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
         Lihat Semua
     </a>
 </div>
@@ -14,12 +14,12 @@
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
                         <div class="text-xl text-gray-900 truncate dark:text-white">
-                            @include('logic.badge-if-priority')
+                            @include('logic.get-badge-priority')
                             {{ $task->name }}
                         </div>
                     </div>
                     <div class="inline-flex items-center mr-2 font-bold text-gray-900 dark:text-white">
-                        {{ $task->formattedTime }}
+                        {{ $task->formattedDueTime }}
                     </div>
                 </div>
             </li>

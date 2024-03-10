@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Carbon\Carbon;
+use App\Models\Category;
 use App\Models\Task;
 
 class TaskService
@@ -10,6 +11,10 @@ class TaskService
     public function getAllTasks()
     {
         return Task::all();
+    }
+    public function getAllCategories()
+    {
+        return Category::all();
     }
     public function formatDueTime($dueTime)
     {
