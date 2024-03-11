@@ -10,10 +10,10 @@
     @foreach ($tasks as $task)
     <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
         <a data-modal-target="read-task-{{ $task->id }}" data-modal-toggle="read-task-{{ $task->id }}">
-            <li class="hover:bg-gray-100 py-3 sm:py-4">
+            <li class="hover:bg-gray-100 dark:hover:bg-slate-600 py-3 sm:py-4">
                 <div class="flex items-center">
                     <div class="flex-1 min-w-0 ms-4">
-                        <div class="text-xl text-gray-900 truncate dark:text-white">
+                        <div class="text-xl font-semibold text-gray-900 truncate dark:text-white">
                             @include('logic.get-badge-priority')
                             {{ $task->name }}
                         </div>

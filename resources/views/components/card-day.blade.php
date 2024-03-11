@@ -14,12 +14,12 @@
         <dl
             class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-2 dark:text-white sm:p-8">
             <div class="flex flex-col items-center justify-center">
-                <dt class="mb-2 text-3xl font-extrabold">{{ $countTodayTasks }}</dt>
-                <dd class="text-gray-500 dark:text-gray-400">Tugas Hari Ini</dd>
+                <dt class="mb-2 text-3xl font-extrabold"><span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-500 from-blue-900 dark:to-purple-300 dark:from-indigo-500">{{ $countTodayTasks }}</span></dt>
+                <dd class="text-primary-600 dark:text-purple-300 font-bold">Tugas Hari Ini</dd>
             </div>
             <div class="flex flex-col items-center justify-center">
-                <dt class="mb-2 text-3xl font-extrabold">{{ $countUnfinishedTodayTasks }}</dt>
-                <dd class="text-gray-500 dark:text-gray-400">Belum Dikerjakan</dd>
+                <dt class="mb-2 text-3xl font-extrabold"><span class="text-transparent bg-clip-text bg-gradient-to-r to-blue-500 from-blue-900 dark:to-purple-300 dark:from-indigo-500">{{ $countUnfinishedTodayTasks }}</span></dt>
+                <dd class="text-primary-600 dark:text-purple-300 font-bold">Belum Dikerjakan</dd>
             </div>
         </dl>
     </div>
