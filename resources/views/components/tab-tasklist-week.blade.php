@@ -26,6 +26,6 @@
     @if($tasks->isEmpty())
         <p class="text-center text-gray-500 dark:text-gray-400 py-4">Tidak Ada Tugas Minggu Ini</p>
     @else
-        @include('components.table-task-today')
+        @include('components.table-task-full')
     @endif
 </div>
