@@ -7,4 +7,5 @@
     </div>
     @include('components.speeddial-add-category')
     @include('components.modal-new-category')
+    @include('components.modal-edit-category')
 @endsection

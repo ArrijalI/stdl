@@ -16,7 +16,7 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-4">
     @foreach ($categories as $category)
         @if (array_key_exists($category->color, $colorClasses))
-            <button type="button"
+            <button type="button" data-modal-target="edit-category-{{ $category->id }}" data-modal-toggle="edit-category-{{ $category->id }}"
                 class="text-white bg-gradient-to-r {{ $colorClasses[$category->color] }} hover:bg-gradient-to-br focus:ring-4 focus:outline-none font-medium rounded-lg text-lg px-5 py-2.5 text-center me-2 mb-2">{{ $category->name }}</button>
         @endif
     @endforeach
