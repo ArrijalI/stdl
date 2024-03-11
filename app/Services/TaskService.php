@@ -12,29 +12,52 @@ class TaskService
     {
         return Task::all();
     }
-    
+
     public function getAllCategories()
     {
         return Category::all();
     }
-    
+
+    public function getTodayDate()
+    {
+        return Carbon::today()->locale('id')->translatedFormat('d F Y');
+    }
+
+    public function getTodayDayName()
+    {
+        return Carbon::now()->locale('id')->isoFormat('dddd');
+    }
+
     public function getTaskToday()
     {
-        return Task::whereDate('due_date', Carbon::today())->get();
+        return Task::whereDate('due_date', Carbon::today())->orderBy('status')->get();
     }
-    
+
+    public function getTaskTodayCount()
+    {
+        return Task::whereDate('due_date', Carbon::today())->count();
+    }
+
+    public function getUnfinishedTaskTodayCount()
+    {
+        return Task::whereDate('due_date', Carbon::today())->where('status', 1)->count();
+    }
+
     public function getTaskThisWeek()
     {
-        return Task::whereBetween('due_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])->get();
+        return Task::whereBetween('due_date', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+            ->orderBy('status')
+            ->get();
     }
-    
+
     public function getTaskThisMonth()
     {
         return Task::whereYear('due_date', Carbon::now()->year)
-                    ->whereMonth('due_date', Carbon::now()->month)
-                    ->get();
+            ->whereMonth('due_date', Carbon::now()->month)
+            ->orderBy('status')
+            ->get();
     }
-    
+
     public function formatDueTime($dueTime)
     {
         return Carbon::parse($dueTime)->format('H:i');

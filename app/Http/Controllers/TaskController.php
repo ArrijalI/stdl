@@ -22,8 +22,16 @@ class TaskController extends Controller
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
         }
+        $countTodayTasks = $this->taskService->getTaskTodayCount();
+        $countUnfinishedTodayTasks = $this->taskService->getUnfinishedTaskTodayCount();
+        $todayDate = $this->taskService->getTodayDate();
+        $todayDayName = $this->taskService->getTodayDayName();
         return view('dashboard', [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+            'countTodayTasks' => $countTodayTasks,
+            'countUnfinishedTodayTasks' => $countUnfinishedTodayTasks,
+            'todayDate' => $todayDate,
+            'todayDayName' => $todayDayName,
         ]);
     }
 
@@ -34,8 +42,42 @@ class TaskController extends Controller
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
         }
+        return view('task-all', [
+            'tasks' => $tasks,
+        ]);
+    }
+
+    public function getToday()
+    {
+        $tasks = $this->taskService->getTaskToday();
+        foreach ($tasks as $task) {
+            $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
+            $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
+        }
         return view('task', [
-            'tasks' => $tasks
+            'tasks' => $tasks,
+        ]);
+    }
+    public function getWeek()
+    {
+        $tasks = $this->taskService->getTaskThisWeek();
+        foreach ($tasks as $task) {
+            $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
+            $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
+        }
+        return view('task-week', [
+            'tasks' => $tasks,
+        ]);
+    }
+    public function getMonth()
+    {
+        $tasks = $this->taskService->getTaskThisMonth();
+        foreach ($tasks as $task) {
+            $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
+            $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
+        }
+        return view('task-month', [
+            'tasks' => $tasks,
         ]);
     }
 }

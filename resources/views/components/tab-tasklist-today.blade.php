@@ -7,19 +7,25 @@
                 aria-current="page">Hari Ini</a>
         </li>
         <li class="me-2">
-            <a href="#"
-                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Minggu Ini</a>
+            <a href="/tasks-week"
+                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Minggu
+                Ini</a>
         </li>
         <li class="me-2">
-            <a href="#"
-                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Bulan Ini</a>
+            <a href="/tasks-month"
+                class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Bulan
+                Ini</a>
         </li>
         <li class="me-2">
-            <a href="#"
+            <a href="/tasks-all"
                 class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Semua</a>
         </li>
     </ul>
 </div>
-<div class=" rounded-lg bg-gray-50 dark:bg-gray-800">
-    @include('components.table-task-today')
+<div class="rounded-lg bg-gray-50 dark:bg-gray-800">
+    @if($tasks->isEmpty())
+        <p class="text-center text-gray-500 dark:text-gray-400 py-4">Tidak Ada Tugas Hari Ini</p>
+    @else
+        @include('components.table-task-today')
+    @endif
 </div>
