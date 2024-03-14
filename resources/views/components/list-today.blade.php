@@ -2,7 +2,7 @@
     <h5 class=" text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         Hari Ini
     </h5>
-    <a href="/tasks" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+    <a href="/tasks" class="text-sm font-bold text-blue-600 hover:underline dark:text-blue-500">
         Lihat Semua
     </a>
 </div>
