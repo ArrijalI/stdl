@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>STDL</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @include('components.script-darkcheck')
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/darkmode-check.js'])
 </head>
 
 <body class="dark:bg-gray-800 dark:border-gray-700">
@@ -20,4 +19,4 @@
 </body>
 
 </html>
-@include('components.script-darkmode')
+@vite(['resources/js/darkmode.js'])
