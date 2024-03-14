@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\TaskService;
-use App\Models\Task;
+use App\Models\Categories;
+use App\Models\Tasks;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -18,6 +19,7 @@ class TaskController extends Controller
     public function dashboard()
     {
         $tasks = $this->taskService->getAllTasks();
+        $categories = $this->taskService->getAllCategories();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -28,6 +30,7 @@ class TaskController extends Controller
         $todayDayName = $this->taskService->getTodayDayName();
         return view('dashboard', [
             'tasks' => $tasks,
+            'categories' => $categories,
             'countTodayTasks' => $countTodayTasks,
             'countUnfinishedTodayTasks' => $countUnfinishedTodayTasks,
             'todayDate' => $todayDate,
