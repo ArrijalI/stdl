@@ -20,12 +20,12 @@ class TaskService
 
     public function getTodayDate()
     {
-        return Carbon::today()->locale('id')->translatedFormat('d F Y');
+        return Carbon::today()->translatedFormat('d F Y');
     }
 
     public function getTodayDayName()
     {
-        return Carbon::now()->locale('id')->isoFormat('dddd');
+        return Carbon::now()->isoFormat('dddd');
     }
 
     public function getTaskToday()
