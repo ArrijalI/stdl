@@ -22,9 +22,9 @@
         </li>
     </ul>
 </div>
-<div class="rounded-lg bg-gray-50 dark:bg-gray-800">
+<div class="rounded-l mt-4 bg-gray-50 dark:bg-gray-800">
     @if($tasks->isEmpty())
-        <p class="text-center text-gray-500 dark:text-gray-400 py-4">Tidak Ada Tugas Hari Ini</p>
+        <p class="text-center rounded-lg text-gray-500 dark:text-gray-400 py-4">Tidak Ada Tugas Hari Ini</p>
     @else
         @include('components.table-task-today')
     @endif

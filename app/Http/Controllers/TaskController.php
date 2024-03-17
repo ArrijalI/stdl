@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Services\TaskService;
-use App\Models\Categories;
-use App\Models\Tasks;
+use App\Models\Category;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -18,8 +18,8 @@ class TaskController extends Controller
 
     public function dashboard()
     {
-        $tasks = $this->taskService->getAllTasks();
         $categories = $this->taskService->getAllCategories();
+        $tasks = $this->taskService->getTaskToday();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -40,6 +40,7 @@ class TaskController extends Controller
 
     public function getAll()
     {
+        $categories = $this->taskService->getAllCategories();
         $tasks = $this->taskService->getAllTasks();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
@@ -47,11 +48,13 @@ class TaskController extends Controller
         }
         return view('task-all', [
             'tasks' => $tasks,
+            'categories' => $categories
         ]);
     }
 
     public function getToday()
     {
+        $categories = $this->taskService->getAllCategories();
         $tasks = $this->taskService->getTaskToday();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
@@ -59,10 +62,12 @@ class TaskController extends Controller
         }
         return view('task', [
             'tasks' => $tasks,
+            'categories' => $categories
         ]);
     }
     public function getWeek()
     {
+        $categories = $this->taskService->getAllCategories();
         $tasks = $this->taskService->getTaskThisWeek();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
@@ -70,10 +75,12 @@ class TaskController extends Controller
         }
         return view('task-week', [
             'tasks' => $tasks,
+            'categories' => $categories
         ]);
     }
     public function getMonth()
     {
+        $categories = $this->taskService->getAllCategories();
         $tasks = $this->taskService->getTaskThisMonth();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
@@ -81,6 +88,7 @@ class TaskController extends Controller
         }
         return view('task-month', [
             'tasks' => $tasks,
+            'categories' => $categories
         ]);
     }
 }
