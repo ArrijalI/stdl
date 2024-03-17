@@ -48,7 +48,7 @@ class TaskController extends Controller
         }
         return view('task-all', [
             'tasks' => $tasks,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 
@@ -62,7 +62,7 @@ class TaskController extends Controller
         }
         return view('task', [
             'tasks' => $tasks,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
     public function getWeek()
@@ -75,7 +75,7 @@ class TaskController extends Controller
         }
         return view('task-week', [
             'tasks' => $tasks,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
     public function getMonth()
@@ -88,7 +88,7 @@ class TaskController extends Controller
         }
         return view('task-month', [
             'tasks' => $tasks,
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 }

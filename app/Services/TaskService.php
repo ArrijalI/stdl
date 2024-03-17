@@ -67,15 +67,4 @@ class TaskService
     {
         return Carbon::parse($dueDate)->format('d-m-Y');
     }
-
-    public function splitDueTime($dueTime)
-    {
-        $parts = explode(':', $dueTime);
-        if (count($parts) === 2) {
-            return ['hour' => $parts[0], 'minute' => $parts[1]];
-        } else {
-            // Handle invalid input format
-            return ['hour' => null, 'minute' => null];
-        }
-    }
 }
