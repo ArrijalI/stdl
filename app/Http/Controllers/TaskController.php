@@ -101,12 +101,16 @@ class TaskController extends Controller
             'due_time' => $request->input('due_time'),
             'priority' => $request->input('priority'),
             'category_id' => $request->input('category_id'),
-            'description' => $request->input('description'),
+            'description' => $request->input('description') ?: 'tidak ada deskripsi',
             'status' => 1,
         ];
+
+        $validatedData = $this->taskService->validateTaskData($request);
+
         $this->taskService->createTask($data);
         return redirect()->back();
     }
+
     public function updateTask(Request $request, $id): RedirectResponse
     {
         $task = Task::findOrFail($id);
@@ -116,9 +120,12 @@ class TaskController extends Controller
             'due_time' => $request->input('due_time'),
             'priority' => $request->input('priority'),
             'category_id' => $request->input('category_id'),
-            'description' => $request->input('description'),
+            'description' => $request->input('description') ?: 'tidak ada deskripsi',
             'status' => 1,
         ];
+
+        $validatedData = $this->taskService->validateTaskData($request);
+        
         if ($task) {
             $this->taskService->updateTaskData($task, $data);
         } else {
@@ -146,6 +153,11 @@ class TaskController extends Controller
         } else {
             abort(404);
         }
+        return redirect()->back();
+    }
+    public function deleteTask($id)
+    {
+        $this->taskService->deleteTaskData($id);
         return redirect()->back();
     }
 }

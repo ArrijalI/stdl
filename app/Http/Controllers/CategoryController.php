@@ -26,6 +26,8 @@ class CategoryController extends Controller
 
     public function storeCategory(Request $request): RedirectResponse
     {
+        $this->taskService->validateCategoryData($request);
+
         $name = $request->input('name');
         $color = $request->input('color');
         $this->taskService->createCategory($name, $color);
@@ -37,6 +39,7 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
         if ($category) {
+            $this->taskService->validateCategoryData($request);
             $this->taskService->updateCategoryData($category, $request->input('name'), $request->input('color'));
         } else {
             abort(404);

@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Task;
 
@@ -69,6 +70,20 @@ class TaskService
         return Carbon::parse($dueDate)->format('d-m-Y');
     }
 
+    public function validateCategoryData(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|not_regex:/^\s*$/',
+            'color' => 'required|string|not_regex:/^\s*$/|in:blue,green,red,purple,indigo,teal,orange,pink,lime',
+        ]);
+
+        if ($validatedData->fails()) {
+            return redirect()->back()->withErrors($validatedData)->withInput();
+        }
+
+        return $validatedData;
+    }
+
     public function createCategory($name, $color)
     {
         $category = new Category;
@@ -91,6 +106,21 @@ class TaskService
         } else {
             abort(404);
         }
+    }
+    public function validateTaskData(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|regex:/^\S.*$/',
+            'due_date' => 'required|date_format:d/m/Y',
+            'due_time' => 'required|date_format:H:i',
+            'priority' => 'required|in:1,2,3',
+            'category_id' => 'required|exists:categories,id',
+            'description' => 'required',
+        ]);
+        if ($validatedData->fails()) {
+            return redirect()->back()->withErrors($validatedData)->withInput();
+        }
+        return $validatedData;
     }
     public function createTask($data)
     {
@@ -121,5 +151,13 @@ class TaskService
         $task->status = $status;
         $task->save();
     }
-
+    public function deleteTaskData($id)
+    {
+        $task = Task::findOrFail($id);
+        if ($task) {
+            $task->delete();
+        } else {
+            abort(404);
+        }
+    }
 }

@@ -27,6 +27,7 @@ Route::post('/task-create', [TaskController::class, 'storeTask'])->name('tasks.s
 Route::post('/task-edit/{id}', [TaskController::class, 'updateTask'])->name('tasks.updateTask');
 Route::get('/task-done/{id}', [TaskController::class, 'updateTaskDone'])->name('tasks.updateTaskDone');
 Route::get('/task-undone/{id}', [TaskController::class, 'updateTaskUndone'])->name('tasks.updateTaskUndone');
+Route::get('/task-delete/{id}', [TaskController::class, 'deleteTask'])->name('tasks.updateTaskUndone');
 
 Route::get('/categories', [CategoryController::class, 'getAll'])->name('categories.getAll');
 Route::post('/category-create', [CategoryController::class, 'storeCategory'])->name('categories.storeCategory');
