@@ -95,15 +95,57 @@ class TaskController extends Controller
     }
     public function storeTask(Request $request)
     {
-        $name = $request->input('name');
-        $due_date = Carbon::createFromFormat('d/m/Y', $request->input('due_date'))->format('Y-m-d');
-        $due_time = $request->input('due_time');
-        $priority = $request->input('priority');
-        $category_id = $request->input('category_id');
-        $description = $request->input('description');
-        $status = 1;
-        $this->taskService->createTask($name, $due_date, $due_time, $priority, $category_id, $description, $status);
-        // Redirect to the dashboard with a success message
+        $data = [
+            'name' => $request->input('name'),
+            'due_date' => Carbon::createFromFormat('d/m/Y', $request->input('due_date'))->format('Y-m-d'),
+            'due_time' => $request->input('due_time'),
+            'priority' => $request->input('priority'),
+            'category_id' => $request->input('category_id'),
+            'description' => $request->input('description'),
+            'status' => 1,
+        ];
+        $this->taskService->createTask($data);
+        return redirect()->back();
+    }
+    public function updateTask(Request $request, $id): RedirectResponse
+    {
+        $task = Task::findOrFail($id);
+        $data = [
+            'name' => $request->input('name'),
+            'due_date' => Carbon::createFromFormat('d/m/Y', $request->input('due_date'))->format('Y-m-d'),
+            'due_time' => $request->input('due_time'),
+            'priority' => $request->input('priority'),
+            'category_id' => $request->input('category_id'),
+            'description' => $request->input('description'),
+            'status' => 1,
+        ];
+        if ($task) {
+            $this->taskService->updateTaskData($task, $data);
+        } else {
+            abort(404);
+        }
+        return redirect()->back();
+    }
+    public function updateTaskDone($id)
+    {
+        $task = Task::findOrFail($id);
+        if ($task) {
+            $status = 2;
+            $this->taskService->updateTaskStatus($task, $status);
+        } else {
+            abort(404);
+        }
+        return redirect()->back();
+    }
+    public function updateTaskUndone($id)
+    {
+        $task = Task::findOrFail($id);
+        if ($task) {
+            $status = 1;
+            $this->taskService->updateTaskStatus($task, $status);
+        } else {
+            abort(404);
+        }
         return redirect()->back();
     }
 }

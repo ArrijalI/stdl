@@ -24,6 +24,9 @@ Route::get('/tasks-week', [TaskController::class, 'getWeek'])->name('tasks.getWe
 Route::get('/tasks-month', [TaskController::class, 'getMonth'])->name('tasks.getMonth');
 Route::get('/tasks-all', [TaskController::class, 'getAll'])->name('tasks.getAll');
 Route::post('/task-create', [TaskController::class, 'storeTask'])->name('tasks.storeTask');
+Route::post('/task-edit/{id}', [TaskController::class, 'updateTask'])->name('tasks.updateTask');
+Route::get('/task-done/{id}', [TaskController::class, 'updateTaskDone'])->name('tasks.updateTaskDone');
+Route::get('/task-undone/{id}', [TaskController::class, 'updateTaskUndone'])->name('tasks.updateTaskUndone');
 
 Route::get('/categories', [CategoryController::class, 'getAll'])->name('categories.getAll');
 Route::post('/category-create', [CategoryController::class, 'storeCategory'])->name('categories.storeCategory');

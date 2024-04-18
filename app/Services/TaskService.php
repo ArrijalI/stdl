@@ -92,17 +92,34 @@ class TaskService
             abort(404);
         }
     }
-    public function createTask($name, $due_date, $due_time, $priority, $category_id, $description, $status)
+    public function createTask($data)
     {
         $task = new Task;
-        $task->name = $name;
-        $task->due_date = $due_date;
-        $task->due_time = $due_time;
-        $task->priority = $priority;
-        $task->category_id = $category_id;
-        $task->description = $description;
-        $task->status = $status;
+        $task->name = $data['name'];
+        $task->due_date = $data['due_date'];
+        $task->due_time = $data['due_time'];
+        $task->priority = $data['priority'];
+        $task->category_id = $data['category_id'];
+        $task->description = $data['description'];
+        $task->status = $data['status'];
         $task->save();
         return $task;
     }
+    public function updateTaskData($task, $data)
+    {
+        $task->name = $data['name'];
+        $task->due_date = $data['due_date'];
+        $task->due_time = $data['due_time'];
+        $task->priority = $data['priority'];
+        $task->category_id = $data['category_id'];
+        $task->description = $data['description'];
+        $task->status = $data['status'];
+        $task->save();
+    }
+    public function updateTaskStatus($task, $status)
+    {
+        $task->status = $status;
+        $task->save();
+    }
+
 }

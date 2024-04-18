@@ -68,7 +68,7 @@
                         </button>
                     </div>
                     @if ($task->status == 1)
-                        <button type="button"
+                        <a href="task-done/{{ $task->id }}"
                             class="inline-flex items-center text-white bg-green-600 hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900">
                             <svg class="w-5 h-5 mr-1.5 -ml-1 text-white dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -77,9 +77,9 @@
                                     stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
                             </svg>
                             Selesai
-                        </button>
+                        </a>
                     @elseif ($task->status == 2)
-                        <button type="button"
+                        <a href="task-undone/{{ $task->id}}"
                             class="inline-flex items-center text-white bg-gray-600 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-gray-500 dark:hover:bg-gray-600 dark:focus:ring-gray-900">
                             <svg class="w-5 h-5 mr-1.5 -ml-1 text-white dark:text-white" aria-hidden="true"
                                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
@@ -88,7 +88,7 @@
                                     stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
                             </svg>
                             Belum Selesai
-                        </button>
+                        </a>
                     @endif
                 </div>
             </div>

@@ -15,11 +15,11 @@
             @include('logic.get-badge-color-category')
         </td>
         <td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-        @if ($task->status == 1)
-            <td class="px-3 py-2 font-bold text-center text-red-600 whitespace-nowrap dark:text-white">Belum Selesai</td>
-        @elseif ($task->status == 2)
-            <td class="px-4 py-2 font-bold text-center text-green-600 whitespace-nowrap dark:text-white">Selesai</td>
-        @endif
-</td>
-</tr>
+            @if ($task->status == 1)
+                <td class="px-3 py-2 font-bold text-center text-red-600 whitespace-nowrap dark:text-white">Belum Selesai</td>
+            @elseif ($task->status == 2)
+             <td class="px-4 py-2 font-bold text-center text-green-600 whitespace-nowrap dark:text-white">Selesai</td>
+            @endif
+        </td>
+    </tr>
 @endforeach
