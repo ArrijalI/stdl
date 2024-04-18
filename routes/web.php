@@ -18,9 +18,14 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', [TaskController::class, 'dashboard'])->name('dashboard.index');
+
 Route::get('/tasks', [TaskController::class, 'getToday'])->name('tasks.getToday');
 Route::get('/tasks-week', [TaskController::class, 'getWeek'])->name('tasks.getWeek');
 Route::get('/tasks-month', [TaskController::class, 'getMonth'])->name('tasks.getMonth');
 Route::get('/tasks-all', [TaskController::class, 'getAll'])->name('tasks.getAll');
-Route::get('/tasks-create', [TaskController::class, 'createTask'])->name('tasks.getAll');
-Route::get('/categories', [CategoryController::class, 'getAll'])->name('categoriess.getAll');
+Route::post('/task-create', [TaskController::class, 'storeTask'])->name('tasks.storeTask');
+
+Route::get('/categories', [CategoryController::class, 'getAll'])->name('categories.getAll');
+Route::post('/category-create', [CategoryController::class, 'storeCategory'])->name('categories.storeCategory');
+Route::post('/category-edit/{id}', [CategoryController::class, 'updateCategory'])->name('categories.editCategory');
+Route::get('/category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('categories.deleteCategory');

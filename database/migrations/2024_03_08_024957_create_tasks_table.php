@@ -31,6 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        $table->dropSoftDeletes();
         $table->dropForeign(['category_id']);
         Schema::dropIfExists('tasks');
     }

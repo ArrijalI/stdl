@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 use App\Models\Task;
 
@@ -66,5 +67,42 @@ class TaskService
     public function formatDueDate($dueDate)
     {
         return Carbon::parse($dueDate)->format('d-m-Y');
+    }
+
+    public function createCategory($name, $color)
+    {
+        $category = new Category;
+        $category->name = $name;
+        $category->color = $color;
+        $category->save();
+        return $category;
+    }
+    public function updateCategoryData(Category $category, $name, $color)
+    {
+        $category->name = $name;
+        $category->color = $color;
+        $category->save();
+    }
+    public function deleteCategoryData($id)
+    {
+        $category = Category::findOrFail($id);
+        if ($category) {
+            $category->delete();
+        } else {
+            // Handle the case when the category is not found
+        }
+    }
+    public function createTask($name, $due_date, $due_time, $priority, $category_id, $description, $status)
+    {
+        $task = new Task;
+        $task->name = $name;
+        $task->due_date = $due_date;
+        $task->due_time = $due_time;
+        $task->priority = $priority;
+        $task->category_id = $category_id;
+        $task->description = $description;
+        $task->status = $status;
+        $task->save();
+        return $task;
     }
 }

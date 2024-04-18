@@ -20,7 +20,8 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form class="p-4 md:p-5">
+            <form action="task-create" method="POST" class="p-4 md:p-5">
+                @csrf
                 <div class="grid gap-4 mb-4 grid-cols-2">
                     <div class="col-span-2">
                         <label for="name"
@@ -46,29 +47,29 @@
                     </div>   
                     <div class="col-span-2 sm:col-span-1">
                         <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kategori</label>
-                        <select id="priority"
+                        <select id="priority" name="category_id"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected>Pilih Kategori</option>
-                            @foreach ($tasks as $task)
-                                <option value="{{ $task->category->name }}">{{ $task->category->name }}</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>                    
                     <div class="col-span-2 sm:col-span-1">
-                        <label for="priority"
+                        <label for="priority" 
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prioritas</label>
-                        <select id="priority"
+                        <select id="priority" name="priority" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                             <option selected="">Pilih Prioritas</option>
-                                <option value="3">Rendah</option>
-                                <option value="2">Normal</option>
-                                <option value="1">Tinggi</option>
+                            <option value="3">Rendah</option>
+                            <option value="2">Normal</option>
+                            <option value="1">Tinggi</option>
                         </select>
                     </div>
                     <div class="col-span-2">
                         <label for="description"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
-                        <textarea id="description" rows="4"
+                        <textarea id="description" name="description" rows="4"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder=""></textarea>
                     </div>

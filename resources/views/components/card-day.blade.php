@@ -10,7 +10,6 @@
 </div>
 <div class="space-y-8 md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center">
     <div class="w-full">
-
         <dl
             class="grid max-w-screen-xl grid-cols-2 gap-8 p-4 mx-auto text-gray-900 sm:grid-cols-2 xl:grid-cols-2 dark:text-white sm:p-8">
             <div class="flex flex-col items-center justify-center">
