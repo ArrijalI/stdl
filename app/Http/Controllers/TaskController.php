@@ -104,6 +104,6 @@ class TaskController extends Controller
         $status = 1;
         $this->taskService->createTask($name, $due_date, $due_time, $priority, $category_id, $description, $status);
         // Redirect to the dashboard with a success message
-        return redirect()->refresh();
+        return redirect()->back();
     }
 }

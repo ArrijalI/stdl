@@ -11,7 +11,7 @@ class TaskService
 {
     public function getAllTasks()
     {
-        return Task::all();
+        return Task::orderBy('due_date')->orderBy('due_time')->get();
     }
 
     public function getAllCategories()
@@ -89,7 +89,7 @@ class TaskService
         if ($category) {
             $category->delete();
         } else {
-            // Handle the case when the category is not found
+            abort(404);
         }
     }
     public function createTask($name, $due_date, $due_time, $priority, $category_id, $description, $status)

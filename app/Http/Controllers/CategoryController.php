@@ -39,7 +39,7 @@ class CategoryController extends Controller
         if ($category) {
             $this->taskService->updateCategoryData($category, $request->input('name'), $request->input('color'));
         } else {
-            // Handle the case when the category is not found
+            abort(404);
         }
         return redirect('/categories');
     }
