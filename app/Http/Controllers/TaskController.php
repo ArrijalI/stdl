@@ -21,7 +21,8 @@ class TaskController extends Controller
     public function dashboard()
     {
         $categories = $this->taskService->getAllCategories();
-        $tasks = $this->taskService->getTaskToday();
+        $tasks = $this->taskService->getTaskTodayWithoutKeyword();
+        $now = $this->taskService->getNowHour();
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -33,6 +34,7 @@ class TaskController extends Controller
         return view('dashboard', [
             'tasks' => $tasks,
             'categories' => $categories,
+            'now' => $now,
             'countTodayTasks' => $countTodayTasks,
             'countUnfinishedTodayTasks' => $countUnfinishedTodayTasks,
             'todayDate' => $todayDate,
@@ -54,10 +56,11 @@ class TaskController extends Controller
         ]);
     }
 
-    public function getToday()
+    public function getToday(Request $request)
     {
+        $keyword = $request->input('keyword');
         $categories = $this->taskService->getAllCategories();
-        $tasks = $this->taskService->getTaskToday();
+        $tasks = $this->taskService->getTaskToday($keyword);
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -65,6 +68,7 @@ class TaskController extends Controller
         return view('task', [
             'tasks' => $tasks,
             'categories' => $categories,
+            'keyword' => $keyword,
         ]);
     }
     public function getWeek()

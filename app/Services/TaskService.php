@@ -20,6 +20,11 @@ class TaskService
         return Category::all();
     }
 
+    public function getNowHour()
+    {
+        return Carbon::now()->format('H:i');
+    }
+
     public function getTodayDate()
     {
         return Carbon::today()->translatedFormat('d F Y');
@@ -30,9 +35,22 @@ class TaskService
         return Carbon::now()->isoFormat('dddd');
     }
 
-    public function getTaskToday()
-    {
-        return Task::whereDate('due_date', Carbon::today())->orderBy('status')->get();
+    public function getTaskToday($keyword)
+    { 
+        return Task::whereDate('due_date', Carbon::today())
+            ->where(function ($query) use ($keyword) {
+                $query->where('name', 'like', '%' . $keyword . '%')
+                    ->orWhere('description', 'like', '%' . $keyword . '%');
+            })
+            ->orderBy('status')
+            ->get();
+    }
+
+    public function getTaskTodayWithoutKeyword()
+    { 
+        return Task::whereDate('due_date', Carbon::today())
+            ->orderBy('status')
+            ->get();
     }
 
     public function getTaskTodayCount()
@@ -76,11 +94,6 @@ class TaskService
             'name' => 'required|string|not_regex:/^\s*$/',
             'color' => 'required|string|not_regex:/^\s*$/|in:blue,green,red,purple,indigo,teal,orange,pink,lime',
         ]);
-
-        if ($validatedData->fails()) {
-            return redirect()->back()->withErrors($validatedData)->withInput();
-        }
-
         return $validatedData;
     }
 
@@ -117,9 +130,9 @@ class TaskService
             'category_id' => 'required|exists:categories,id',
             'description' => 'required',
         ]);
-        if ($validatedData->fails()) {
-            return redirect()->back()->withErrors($validatedData)->withInput();
-        }
+        // if ($validatedData->fails()) {
+        //     return redirect()->back()->withErrors($validatedData)->withInput();
+        // }
         return $validatedData;
     }
     public function createTask($data)
