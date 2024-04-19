@@ -1,5 +1,5 @@
 <div class="rounded mt-4 mb-2">
-    <form action="tasks" method="GET" class="md:block ">
+    <form action="tasks-week" method="GET" class="md:block ">
         @csrf
         <div class="relative md:w-96">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">

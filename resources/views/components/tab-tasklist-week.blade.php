@@ -22,7 +22,7 @@
         </li>
     </ul>
 </div>
-@include('components.input-search')
+@include('components.input-search-week')
 <div class="rounded-lg mt-4 bg-gray-50 dark:bg-gray-800">
     @if($tasks->isEmpty())
         <p class="text-center select-none text-gray-500 dark:text-gray-400 py-4">Tidak Ada Tugas Minggu Ini</p>

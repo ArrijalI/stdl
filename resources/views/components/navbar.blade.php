@@ -14,9 +14,9 @@
                     </svg>
                 </button>
                 <a href="/" class="flex ms-2 md:me-24">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                    <img src="{{ asset('images/logo-stdl-dark.png') }}" class="h-8 me-3" alt="Logo"/>
                     <span
-                        class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap select-none dark:text-white">STDL</span>
+                        class="self-center text-xl font-bold sm:text-2xl whitespace-nowrap text-transparent select-none bg-clip-text bg-gradient-to-r to-blue-500 from-blue-900 dark:to-purple-300 dark:from-indigo-500">STDL</span>
                 </a>
             </div>
             <div class="flex items-center">

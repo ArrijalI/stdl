@@ -42,10 +42,11 @@ class TaskController extends Controller
         ]);
     }
 
-    public function getAll()
+    public function getAll(Request $request)
     {
+        $keyword = $request->input('keyword');
         $categories = $this->taskService->getAllCategories();
-        $tasks = $this->taskService->getAllTasks();
+        $tasks = $this->taskService->getAllTasks($keyword);
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -53,6 +54,7 @@ class TaskController extends Controller
         return view('task-all', [
             'tasks' => $tasks,
             'categories' => $categories,
+            'keyword' => $keyword,
         ]);
     }
 
@@ -71,10 +73,11 @@ class TaskController extends Controller
             'keyword' => $keyword,
         ]);
     }
-    public function getWeek()
+    public function getWeek(Request $request)
     {
+        $keyword = $request->input('keyword');
         $categories = $this->taskService->getAllCategories();
-        $tasks = $this->taskService->getTaskThisWeek();
+        $tasks = $this->taskService->getTaskThisWeek($keyword);
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -82,12 +85,14 @@ class TaskController extends Controller
         return view('task-week', [
             'tasks' => $tasks,
             'categories' => $categories,
+            'keyword' => $keyword,
         ]);
     }
-    public function getMonth()
+    public function getMonth(Request $request)
     {
+        $keyword = $request->input('keyword');
         $categories = $this->taskService->getAllCategories();
-        $tasks = $this->taskService->getTaskThisMonth();
+        $tasks = $this->taskService->getTaskThisMonth($keyword);
         foreach ($tasks as $task) {
             $task->formattedDueTime = $this->taskService->formatDueTime($task->due_time);
             $task->formattedDueDate = $this->taskService->formatDueDate($task->due_date);
@@ -95,6 +100,7 @@ class TaskController extends Controller
         return view('task-month', [
             'tasks' => $tasks,
             'categories' => $categories,
+            'keyword' => $keyword,
         ]);
     }
     public function storeTask(Request $request)
@@ -132,6 +138,8 @@ class TaskController extends Controller
         
         if ($task) {
             $this->taskService->updateTaskData($task, $data);
+            session()->flash('status', 'success');
+            session()->flash('message', 'Data berhasil ditambah');
         } else {
             abort(404);
         }

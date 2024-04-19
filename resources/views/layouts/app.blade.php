@@ -15,6 +15,7 @@
     <div class="p-4 sm:ml-64 dark:bg-gray-800 dark:border-gray-700">
         <!-- content -->
         @yield('content')
+        @include('components.alert')
     </div>
 </body>
 

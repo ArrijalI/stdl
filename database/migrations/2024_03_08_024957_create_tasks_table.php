@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('priority')->required();
             $table->unsignedBigInteger('category_id')->required();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('restrict'); //foreign key
-            $table->text('description')->required();
+            $table->text('description');
             $table->string('status')->required();
             $table->timestamps();
             $table->softDeletes();
