@@ -178,4 +178,9 @@ class TaskController extends Controller
             return redirect()->back();
         }
     }
+    public function clearUnusedTasks()
+    {
+        $this->taskService->clearUnusedTasks();
+        return redirect()->back()->with('success', 'Tugas yang tidak terpakai berhasil dihapus!');
+    }
 }

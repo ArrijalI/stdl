@@ -33,18 +33,18 @@
                                             stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
                                     </svg>
                                 @elseif ($task->status == 1 && $task->formattedDueTime < $now)
-                                    <svg class="w-6 h-6 text-red-500 dark:text-red-300" aria-hidden="true"
+                                <svg class="w-6 h-6 text-red-500 dark:text-red-300" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                         viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                            stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
                                     </svg>
                                 @elseif ($task->status == 1)
                                     <svg class="w-6 h-6 text-yellow-500 dark:text-yellow-300" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                                         viewBox="0 0 24 24">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                            stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                     </svg>
                                 @endif
                             </div>
