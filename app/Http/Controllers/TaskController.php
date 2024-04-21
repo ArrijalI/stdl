@@ -178,9 +178,9 @@ class TaskController extends Controller
             return redirect()->back();
         }
     }
-    public function clearUnusedTasks()
+    public function clearSoftDeletes()
     {
-        $this->taskService->clearUnusedTasks();
-        return redirect()->back()->with('success', 'Tugas yang tidak terpakai berhasil dihapus!');
+        $this->taskService->cleanSoftDeletes();
+        return redirect()->back()->with('success', 'Data sampah berhasil dibersihkan!');
     }
 }

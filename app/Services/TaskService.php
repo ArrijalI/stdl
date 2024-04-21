@@ -197,4 +197,9 @@ class TaskService
             abort(404);
         }
     }
+    public function cleanSoftDeletes()
+    {
+        Task::onlyTrashed()->forceDelete();
+        Category::onlyTrashed()->forceDelete();
+    }
 }

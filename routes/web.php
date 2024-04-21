@@ -34,4 +34,4 @@ Route::post('/category-create', [CategoryController::class, 'storeCategory'])->n
 Route::post('/category-edit/{id}', [CategoryController::class, 'updateCategory'])->name('categories.editCategory');
 Route::get('/category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('categories.deleteCategory');
 
-// Route::get('/clear-unused-tasks', [TaskController::class, 'clearUnusedTasks'])->name('tasks.clearUnusedTasks');
+Route::get('/clear-sofdeletes', [TaskController::class, 'cleanSoftDeletes'])->name('tasks.cleanSoftDeletes');
