@@ -117,8 +117,12 @@ class TaskController extends Controller
 
         $validatedData = $this->taskService->validateTaskData($request);
 
-        $this->taskService->createTask($data);
-        return redirect()->back();
+        $createTask = $this->taskService->createTask($data);
+        if (!$createTask) {
+            return redirect()->back()->with('success', 'Tugas baru ditambah!');
+        } else {
+            return redirect()->back();
+        }
     }
 
     public function updateTask(Request $request, $id): RedirectResponse
@@ -135,15 +139,13 @@ class TaskController extends Controller
         ];
 
         $validatedData = $this->taskService->validateTaskData($request);
-        
-        if ($task) {
+
+        if ($validatedData) {
             $this->taskService->updateTaskData($task, $data);
-            session()->flash('status', 'success');
-            session()->flash('message', 'Data berhasil ditambah');
+            return redirect()->back()->with('success', 'Tugas berhasil diubah!');
         } else {
-            abort(404);
+            return redirect()->back();
         }
-        return redirect()->back();
     }
     public function updateTaskDone($id)
     {
@@ -169,7 +171,11 @@ class TaskController extends Controller
     }
     public function deleteTask($id)
     {
-        $this->taskService->deleteTaskData($id);
-        return redirect()->back();
+        $deleteTask = $this->taskService->deleteTaskData($id);
+        if ($deleteTask) {
+            return redirect()->back()->with('success', 'Tugas berhasil dihapus!');
+        } else {
+            return redirect()->back();
+        }
     }
 }

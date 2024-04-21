@@ -118,6 +118,7 @@ class TaskService
         $category->name = $name;
         $category->color = $color;
         $category->save();
+        return $category;
     }
     public function deleteCategoryData($id)
     {
@@ -127,6 +128,7 @@ class TaskService
         } else {
             abort(404);
         }
+        return $category;
     }
     public function validateTaskData(Request $request)
     {

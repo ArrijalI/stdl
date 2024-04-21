@@ -30,9 +30,12 @@ class CategoryController extends Controller
 
         $name = $request->input('name');
         $color = $request->input('color');
-        $this->taskService->createCategory($name, $color);
-
-        return redirect('/categories');
+        $categoryStore = $this->taskService->createCategory($name, $color);
+        if ($categoryStore) {
+            return redirect('/categories')->with('success', 'Kategori berhasil ditambah!');
+        } else {
+            return redirect('/categories');
+        }
     }
 
     public function updateCategory(Request $request, $id): RedirectResponse
@@ -44,12 +47,20 @@ class CategoryController extends Controller
         } else {
             abort(404);
         }
-        return redirect('/categories');
+        if ($category) {
+            return redirect('/categories')->with('success', 'Kategori berhasil diubah!');
+        } else {
+            return redirect('/categories');
+        }
     }
 
     public function deleteCategory($id)
     {
-        $this->taskService->deleteCategoryData($id);
-        return redirect('/categories');
+        $category = $this->taskService->deleteCategoryData($id);
+        if ($category) {
+            return redirect('/categories')->with('success', 'Kategori berhasil dihapus!');
+        } else {
+            return redirect('/categories');
+        }
     }
 }
