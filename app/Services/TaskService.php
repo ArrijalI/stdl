@@ -197,9 +197,15 @@ class TaskService
             abort(404);
         }
     }
-    public function cleanSoftDeletes()
+    public function clearSoftDeletes()
     {
         Task::onlyTrashed()->forceDelete();
         Category::onlyTrashed()->forceDelete();
+    }
+    public function honeypot(Request $request)
+    {
+        if ($request->filled('other')) {
+            return redirect()->back();
+        }
     }
 }

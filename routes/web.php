@@ -34,4 +34,8 @@ Route::post('/category-create', [CategoryController::class, 'storeCategory'])->n
 Route::post('/category-edit/{id}', [CategoryController::class, 'updateCategory'])->name('categories.editCategory');
 Route::get('/category-delete/{id}', [CategoryController::class, 'deleteCategory'])->name('categories.deleteCategory');
 
-Route::get('/clear-sofdeletes', [TaskController::class, 'cleanSoftDeletes'])->name('tasks.cleanSoftDeletes');
+Route::get('/clear-sofdeletes', [TaskController::class, 'clearSoftDeletes'])->name('tasks.clearSoftDeletes');
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});

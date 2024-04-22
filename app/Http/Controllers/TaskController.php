@@ -105,6 +105,7 @@ class TaskController extends Controller
     }
     public function storeTask(Request $request)
     {
+        $this->taskService->honeypot($request);
         $data = [
             'name' => $request->input('name'),
             'due_date' => Carbon::createFromFormat('d/m/Y', $request->input('due_date'))->format('Y-m-d'),
@@ -127,6 +128,7 @@ class TaskController extends Controller
 
     public function updateTask(Request $request, $id): RedirectResponse
     {
+        $this->taskService->honeypot($request);
         $task = Task::findOrFail($id);
         $data = [
             'name' => $request->input('name'),
@@ -180,7 +182,7 @@ class TaskController extends Controller
     }
     public function clearSoftDeletes()
     {
-        $this->taskService->cleanSoftDeletes();
+        $this->taskService->clearSoftDeletes();
         return redirect()->back()->with('success', 'Data sampah berhasil dibersihkan!');
     }
 }

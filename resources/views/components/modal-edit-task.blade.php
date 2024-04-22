@@ -73,6 +73,7 @@
                                 @endforeach
                             </select>
                         </div>
+                    <input type="text" name="other" id="other" class="hidden" />
                         <div class="col-span-2">
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
